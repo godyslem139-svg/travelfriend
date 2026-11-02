@@ -1,5 +1,3 @@
-"use client";
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -122,9 +120,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* حقوق النشر والروابط السفلية */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-blue-950 text-xs text-slate-300">
-          <p>© {new Date().getFullYear()} Travel Friend. All rights reserved.</p>
+        {/* الروابط السفلية فقط بدون أي حقوق نشر */}
+        <div className="flex justify-end pt-6 border-t border-blue-950/50 text-xs text-slate-300">
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-sky-300 transition-colors">Privacy Policy</Link>
             <Link href="/contact-us" className="hover:text-sky-300 transition-colors">Contact Us</Link>
