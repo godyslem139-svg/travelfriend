@@ -1,10 +1,16 @@
+"use client";
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Header() {
   const whatsappNumber = "00201214968169";
+  const emailAddress = "Info@travelfriend-ag.com";
   const whatsappMessage = encodeURIComponent("Hello, I would like to inquire about Travel Friend services.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { name: "About Us", slug: "about-us" },
@@ -13,12 +19,31 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0a192f]/80 backdrop-blur-md border-b border-blue-900/40 text-white">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#0a192f]/95 backdrop-blur-md border-b border-blue-900/40 text-white">
+      
+      {/* شريط علوي صغير مخصص لإظهار الإيميل ورقم الهاتف بوضوح خارج الهمبرجر */}
+      <div className="bg-[#050d1a] border-b border-blue-950 px-4 sm:px-6 lg:px-8 py-1.5 text-xs text-blue-200 flex flex-wrap items-center justify-between gap-2">
+        <div className="flex items-center gap-6 mx-auto sm:mx-0">
+          <a href={`tel:${whatsappNumber}`} className="flex items-center gap-1.5 hover:text-sky-400 transition-colors">
+            <span>📞</span>
+            <span className="font-medium">{whatsappNumber}</span>
+          </a>
+          <a href={`mailto:${emailAddress}`} className="flex items-center gap-1.5 hover:text-sky-400 transition-colors">
+            <span>✉️</span>
+            <span className="font-medium">{emailAddress}</span>
+          </a>
+        </div>
+        <div className="hidden lg:block text-[11px] text-sky-400 font-medium">
+          ✈️ 24/7 Travel & Tour Concierge Support across Egypt
+        </div>
+      </div>
+
+      {/* الهيدر الرئيسي */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* Logo / Brand */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative w-12 h-12">
+          <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden border border-blue-400/30">
             <Image 
               src="/logo.webp" 
               alt="Travel Friend Logo" 
@@ -26,12 +51,12 @@ export default function Header() {
               className="object-contain"
             />
           </div>
-          <span className="text-xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-sky-400">
+          <span className="text-lg sm:text-xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-sky-400">
             Travel Friend
           </span>
         </Link>
 
-        {/* Navigation Links with Slugs */}
+        {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
@@ -44,11 +69,11 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* WhatsApp & Call Actions */}
-        <div className="flex items-center gap-3">
+        {/* Desktop Actions (Call & WhatsApp Buttons) */}
+        <div className="hidden sm:flex items-center gap-3">
           <a
             href={`tel:${whatsappNumber}`}
-            className="hidden sm:inline-flex items-center justify-center bg-blue-600/30 hover:bg-blue-600/50 text-blue-100 font-medium text-sm py-2.5 px-4 rounded-xl border border-blue-400/30 transition-all duration-300"
+            className="inline-flex items-center justify-center bg-blue-600/30 hover:bg-blue-600/50 text-blue-100 font-medium text-sm py-2.5 px-4 rounded-xl border border-blue-400/30 transition-all duration-300"
           >
             Call Us
           </a>
@@ -66,7 +91,69 @@ export default function Header() {
           </Link>
         </div>
 
+        {/* Mobile Menu Button & Quick Actions */}
+        <div className="flex md:hidden items-center gap-2">
+          <a
+            href={`tel:${whatsappNumber}`}
+            className="sm:hidden p-2 rounded-xl bg-blue-600/30 border border-blue-400/30 text-sky-300 text-xs"
+            title="Call Us"
+          >
+            📞
+          </a>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2.5 rounded-xl bg-blue-950 border border-blue-800/60 text-sky-400 focus:outline-none"
+            aria-label="Toggle Menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-[#071326]/95 backdrop-blur-xl border-b border-blue-900/50 px-6 py-6 space-y-4 shadow-2xl">
+          <nav className="flex flex-col space-y-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.slug}
+                href={`/${item.slug}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-base font-medium text-blue-100 hover:text-sky-400 py-2 border-b border-blue-900/30 transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="pt-2 flex flex-col gap-3">
+            <a
+              href={`tel:${whatsappNumber}`}
+              className="flex items-center justify-center gap-2 bg-blue-600/30 hover:bg-blue-600/50 text-blue-100 font-medium text-sm py-3 px-4 rounded-xl border border-blue-400/30 transition-all"
+            >
+              📞 Call: {whatsappNumber}
+            </a>
+
+            <Link
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-sm py-3 px-5 rounded-xl shadow-md transition-all"
+            >
+              💬 Chat on WhatsApp
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
