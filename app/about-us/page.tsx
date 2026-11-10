@@ -35,9 +35,6 @@ export default function AboutUsPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white pt-20 selection:bg-sky-500 selection:text-slate-950">
       
-      {/* =====================================================================
-          1. HERO SECTION FOR ABOUT US
-      ===================================================================== */}
       <section className="relative overflow-hidden border-b border-blue-900/40 bg-gradient-to-b from-[#0a192f] via-slate-950 to-slate-950 py-20 lg:py-28">
         {/* إضاءة خلفية متوهجة */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#00a2ff]/15 rounded-full blur-[140px] pointer-events-none" />
@@ -60,9 +57,6 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* =====================================================================
-          2. STATS COUNTER BAR
-      ===================================================================== */}
       <section className="border-b border-blue-900/30 bg-[#071326]/60 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -79,10 +73,6 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          3. MAIN STORY & IMAGE SECTION
-      ===================================================================== */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -135,9 +125,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* =====================================================================
-          4. CORE VALUES CARDS
-      ===================================================================== */}
+
       <section className="py-20 bg-[#071326]/50 border-t border-blue-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -171,9 +159,6 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* =====================================================================
-          5. BOTTOM CTA SECTION
-      ===================================================================== */}
       <section className="py-24 max-w-5xl mx-auto px-4 text-center">
         <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-[#0a192f] via-[#1e3a8a]/80 to-[#0284c7]/40 border border-[#00a2ff]/40 shadow-[0_0_40px_rgba(0,162,255,0.2)] space-y-6">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white">

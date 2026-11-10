@@ -19,31 +19,25 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0a192f]/95 backdrop-blur-md border-b border-blue-900/40 text-white">
-      
-      {/* شريط علوي صغير مخصص لإظهار الإيميل ورقم الهاتف بوضوح خارج الهمبرجر */}
-      <div className="bg-[#050d1a] border-b border-blue-950 px-4 sm:px-6 lg:px-8 py-1.5 text-xs text-blue-200 flex flex-wrap items-center justify-between gap-2">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 text-slate-900 shadow-sm">
+            <div className="bg-slate-50 border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-1.5 text-xs text-slate-600 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-6 mx-auto sm:mx-0">
-          <a href={`tel:${whatsappNumber}`} className="flex items-center gap-1.5 hover:text-sky-400 transition-colors">
+          <a href={`tel:${whatsappNumber}`} className="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
             <span>📞</span>
             <span className="font-medium">{whatsappNumber}</span>
           </a>
-          <a href={`mailto:${emailAddress}`} className="flex items-center gap-1.5 hover:text-sky-400 transition-colors">
+          <a href={`mailto:${emailAddress}`} className="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
             <span>✉️</span>
             <span className="font-medium">{emailAddress}</span>
           </a>
         </div>
-        <div className="hidden lg:block text-[11px] text-sky-400 font-medium">
+        <div className="hidden lg:block text-[11px] text-blue-600 font-medium">
           ✈️ 24/7 Travel & Tour Concierge Support across Egypt
         </div>
       </div>
-
-      {/* الهيدر الرئيسي */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        
-        {/* Logo / Brand */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden border border-blue-400/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+                <Link href="/" className="flex items-center gap-3">
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden py-1">
             <Image 
               src="/logo.webp" 
               alt="Travel Friend Logo" 
@@ -51,29 +45,25 @@ export default function Header() {
               className="object-contain"
             />
           </div>
-          <span className="text-lg sm:text-xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-sky-400">
+          <span className="text-xl sm:text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
             Travel Friend
           </span>
         </Link>
-
-        {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.slug}
               href={`/${item.slug}`}
-              className="text-sm font-medium text-blue-100 hover:text-sky-400 transition-colors"
+              className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
             >
               {item.name}
             </Link>
           ))}
         </nav>
-
-        {/* Desktop Actions (Call & WhatsApp Buttons) */}
         <div className="hidden sm:flex items-center gap-3">
           <a
             href={`tel:${whatsappNumber}`}
-            className="inline-flex items-center justify-center bg-blue-600/30 hover:bg-blue-600/50 text-blue-100 font-medium text-sm py-2.5 px-4 rounded-xl border border-blue-400/30 transition-all duration-300"
+            className="inline-flex items-center justify-center bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium text-sm py-2.5 px-4 rounded-xl border border-blue-200 transition-all duration-300"
           >
             Call Us
           </a>
@@ -90,12 +80,10 @@ export default function Header() {
             WhatsApp
           </Link>
         </div>
-
-        {/* Mobile Menu Button & Quick Actions */}
         <div className="flex md:hidden items-center gap-2">
           <a
             href={`tel:${whatsappNumber}`}
-            className="sm:hidden p-2 rounded-xl bg-blue-600/30 border border-blue-400/30 text-sky-300 text-xs"
+            className="sm:hidden p-2 rounded-xl bg-blue-50 border border-blue-200 text-blue-600 text-xs"
             title="Call Us"
           >
             📞
@@ -103,7 +91,7 @@ export default function Header() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2.5 rounded-xl bg-blue-950 border border-blue-800/60 text-sky-400 focus:outline-none"
+            className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 text-blue-600 focus:outline-none"
             aria-label="Toggle Menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,17 +105,15 @@ export default function Header() {
         </div>
 
       </div>
-
-      {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#071326]/95 backdrop-blur-xl border-b border-blue-900/50 px-6 py-6 space-y-4 shadow-2xl">
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-6 py-6 space-y-4 shadow-2xl">
           <nav className="flex flex-col space-y-3">
             {navItems.map((item) => (
               <Link
                 key={item.slug}
                 href={`/${item.slug}`}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base font-medium text-blue-100 hover:text-sky-400 py-2 border-b border-blue-900/30 transition-colors"
+                className="text-base font-medium text-slate-700 hover:text-blue-600 py-2 border-b border-slate-100 transition-colors"
               >
                 {item.name}
               </Link>
@@ -137,7 +123,7 @@ export default function Header() {
           <div className="pt-2 flex flex-col gap-3">
             <a
               href={`tel:${whatsappNumber}`}
-              className="flex items-center justify-center gap-2 bg-blue-600/30 hover:bg-blue-600/50 text-blue-100 font-medium text-sm py-3 px-4 rounded-xl border border-blue-400/30 transition-all"
+              className="flex items-center justify-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium text-sm py-3 px-4 rounded-xl border border-blue-200 transition-all"
             >
               📞 Call: {whatsappNumber}
             </a>

@@ -3,10 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-// ============================================================================
-// DATA DEFINITIONS & INTERFACES
-// ============================================================================
-
 interface PolicySection {
   id: string;
   number: string;
@@ -49,9 +45,6 @@ interface FaqItem {
   category: string;
 }
 
-// ============================================================================
-// MAIN COMPONENT
-// ============================================================================
 
 export default function PrivacyPolicyPage() {
   const whatsappNumber = "00201214968169";
@@ -60,7 +53,6 @@ export default function PrivacyPolicyPage() {
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
-  // States for Interactive Features
   const [activeSection, setActiveSection] = useState<string>("introduction");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -71,8 +63,6 @@ export default function PrivacyPolicyPage() {
     marketing: false,
   });
   const [preferencesSaved, setPreferencesSaved] = useState<boolean>(false);
-
-  // Detailed Policy Sections Data
   const policySections: PolicySection[] = [
     {
       id: "introduction",
@@ -320,7 +310,6 @@ export default function PrivacyPolicyPage() {
     },
   ];
 
-  // Data Retention Schedule Table Data
   const retentionSchedule: DataRetentionRow[] = [
     {
       category: "Active Booking & Itinerary Files",
@@ -359,7 +348,6 @@ export default function PrivacyPolicyPage() {
     },
   ];
 
-  // Third-Party Partners Table Data
   const thirdPartyPartners: ThirdPartyPartner[] = [
     {
       name: "Hospitality & Resort Partners",
@@ -419,7 +407,6 @@ export default function PrivacyPolicyPage() {
     },
   ];
 
-  // Filter sections based on live search input
   const filteredSections = policySections.filter((section) => {
     if (!searchQuery.trim()) return true;
     const q = searchQuery.toLowerCase();
@@ -452,8 +439,6 @@ export default function PrivacyPolicyPage() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Handlers for Cookie Toggles
   const handleToggleCookie = (key: "functional" | "analytics" | "marketing") => {
     setPreferencesSaved(false);
     setCookiePreferences((prev) => ({
@@ -469,9 +454,6 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white pt-20 selection:bg-sky-500 selection:text-slate-950">
-      {/* =====================================================================
-          1. HERO BANNER SECTION
-      ===================================================================== */}
       <section className="relative overflow-hidden border-b border-blue-900/40 bg-gradient-to-b from-[#0a192f] via-slate-950 to-slate-950 py-20 lg:py-28">
         {/* Decorative Ambient Blue Glows */}
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
@@ -494,8 +476,6 @@ export default function PrivacyPolicyPage() {
             <p className="text-lg sm:text-xl text-blue-100/80 font-light leading-relaxed mb-8">
               At <strong className="text-white font-semibold">Travel Friend</strong>, your peace of mind starts long before you board your flight. Explore how we protect your personal information, travel documents, and digital privacy with industry-leading security standards.
             </p>
-
-            {/* Metadata Badges */}
             <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-blue-200/90">
               <div className="flex items-center gap-2 bg-blue-950/50 border border-blue-800/50 px-4 py-2.5 rounded-xl">
                 <svg className="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -521,10 +501,6 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          2. QUICK PRIVACY HIGHLIGHTS BAR
-      ===================================================================== */}
       <section className="border-b border-blue-900/30 bg-[#071120]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -570,10 +546,6 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          3. MAIN CONTENT & STICKY SIDEBAR LAYOUT
-      ===================================================================== */}
       <section className="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
@@ -612,7 +584,6 @@ export default function PrivacyPolicyPage() {
               </div>
             </div>
 
-            {/* Table of Contents */}
             <div className="p-6 rounded-2xl bg-slate-900/90 border border-blue-900/50 backdrop-blur-md">
               <h3 className="text-sm font-bold uppercase tracking-wider text-blue-200 mb-4">
                 Table of Contents
@@ -661,8 +632,6 @@ export default function PrivacyPolicyPage() {
                 </a>
               </nav>
             </div>
-
-            {/* Direct Privacy Officer Contact Card */}
             <div className="p-6 rounded-2xl bg-gradient-to-br from-[#0a192f] via-[#1e3a8a]/50 to-slate-900 border border-blue-500/30 shadow-xl">
               <div className="w-10 h-10 rounded-xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300 mb-4">
                 🛡️
@@ -692,9 +661,7 @@ export default function PrivacyPolicyPage() {
             </div>
           </aside>
 
-          {/* RIGHT COLUMN: Detailed Policy Articles, Tables & Interactive Tools */}
           <div className="lg:col-span-8 space-y-12">
-            {/* Render Filtered Sections */}
             {filteredSections.length === 0 ? (
               <div className="p-12 rounded-2xl bg-slate-900/60 border border-blue-900/40 text-center">
                 <p className="text-lg font-semibold text-white mb-2">
@@ -717,7 +684,6 @@ export default function PrivacyPolicyPage() {
                   id={section.id}
                   className="scroll-mt-28 p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-blue-900/40 hover:border-blue-800/70 transition-all shadow-lg"
                 >
-                  {/* Section Header */}
                   <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-blue-900/40">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-2xl bg-blue-600/20 border border-blue-400/30 flex items-center justify-center shrink-0">
@@ -739,8 +705,6 @@ export default function PrivacyPolicyPage() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Executive Summary Box */}
                   <div className="p-4 rounded-2xl bg-blue-950/40 border border-blue-800/40 mb-6">
                     <p className="text-xs uppercase tracking-wider text-sky-400 font-bold mb-1">
                       Key Summary
@@ -749,15 +713,11 @@ export default function PrivacyPolicyPage() {
                       {section.summary}
                     </p>
                   </div>
-
-                  {/* Detailed Paragraphs */}
                   <div className="space-y-4 text-slate-300 text-base leading-relaxed font-light">
                     {section.paragraphs.map((paragraph, pIdx) => (
                       <p key={pIdx}>{paragraph}</p>
                     ))}
                   </div>
-
-                  {/* Structured Bullet Points */}
                   {section.bulletPoints && (
                     <div className="mt-8 grid grid-cols-1 gap-4">
                       {section.bulletPoints.map((item, bIdx) => (
@@ -800,10 +760,6 @@ export default function PrivacyPolicyPage() {
                 </article>
               ))
             )}
-
-            {/* =================================================================
-                SECTION 09: DATA RETENTION & THIRD-PARTY TABLES
-            ================================================================= */}
             <div
               id="retention-schedule"
               className="scroll-mt-28 p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-blue-900/40 shadow-lg space-y-8"
@@ -819,8 +775,6 @@ export default function PrivacyPolicyPage() {
                   We retain personal data only for as long as necessary to fulfill the purposes for which it was collected, including satisfying legal, accounting, or reporting requirements. Below is our transparent retention matrix.
                 </p>
               </div>
-
-              {/* Retention Table */}
               <div className="overflow-x-auto rounded-2xl border border-blue-900/50">
                 <table className="w-full text-left border-collapse">
                   <thead>
@@ -880,10 +834,6 @@ export default function PrivacyPolicyPage() {
                 </div>
               </div>
             </div>
-
-            {/* =================================================================
-                SECTION 10: INTERACTIVE COOKIE CONSENT MANAGER
-            ================================================================= */}
             <div
               id="cookie-manager"
               className="scroll-mt-28 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-[#0a192f] to-slate-900 border border-sky-500/30 shadow-xl space-y-6"
@@ -907,7 +857,6 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <div className="space-y-4">
-                {/* Essential Cookies */}
                 <div className="p-4 rounded-2xl bg-slate-950/80 border border-blue-900/40 flex items-center justify-between gap-4">
                   <div>
                     <div className="flex items-center gap-2">
@@ -924,8 +873,6 @@ export default function PrivacyPolicyPage() {
                     Locked
                   </div>
                 </div>
-
-                {/* Functional Cookies */}
                 <div className="p-4 rounded-2xl bg-slate-950/80 border border-blue-900/40 flex items-center justify-between gap-4">
                   <div>
                     <h4 className="text-sm font-bold text-white">Functional & Itinerary Preferences</h4>
@@ -966,8 +913,6 @@ export default function PrivacyPolicyPage() {
                     {cookiePreferences.analytics ? "Enabled" : "Disabled"}
                   </button>
                 </div>
-
-                {/* Marketing Cookies */}
                 <div className="p-4 rounded-2xl bg-slate-950/80 border border-blue-900/40 flex items-center justify-between gap-4">
                   <div>
                     <h4 className="text-sm font-bold text-white">Personalized Travel Offers</h4>
@@ -1004,10 +949,6 @@ export default function PrivacyPolicyPage() {
                 )}
               </div>
             </div>
-
-            {/* =================================================================
-                SECTION 11: INTERACTIVE PRIVACY FAQ ACCORDION
-            ================================================================= */}
             <div
               id="privacy-faq"
               className="scroll-mt-28 p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-blue-900/40 shadow-lg space-y-6"
@@ -1056,10 +997,6 @@ export default function PrivacyPolicyPage() {
                 })}
               </div>
             </div>
-
-            {/* =================================================================
-                BOTTOM CTA: EXERCISE YOUR DATA RIGHTS
-            ================================================================= */}
             <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#0a192f] via-[#1e3a8a]/80 to-[#0284c7]/40 border border-sky-400/30 text-center space-y-6">
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
                 Have Questions About Your Personal Data?

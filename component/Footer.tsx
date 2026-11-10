@@ -9,22 +9,18 @@ export default function Footer() {
   const emailAddress = "Info@travelfriend-ag.com";
 
   return (
-    <footer className="relative bg-slate-950 text-white overflow-hidden pt-20 pb-12 border-t border-[#00a2ff]/20">
-      {/* إضاءة خلفية متوهجة باللون اللبني الخاص باللوجو */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#00a2ff]/15 rounded-full blur-[150px] pointer-events-none" />
+    <footer className="relative bg-white text-slate-900 overflow-hidden pt-20 pb-12 border-t border-slate-200">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#00a2ff]/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* الحاوية الرئيسية بتصميم غير تقليدي (Grid مع بطاقة عائمة متوهجة) */}
-        <div className="relative rounded-3xl p-[1px] bg-gradient-to-r from-[#00a2ff]/50 via-sky-400/30 to-blue-600/50 shadow-[0_0_50px_rgba(0,162,255,0.15)] mb-16">
-          <div className="bg-[#071326]/95 backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16">
+        <div className="relative rounded-3xl p-[1px] bg-gradient-to-r from-[#00a2ff]/40 via-sky-400/20 to-blue-600/40 shadow-xl mb-16">
+          <div className="bg-slate-50/95 backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16 border border-slate-200">
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 items-start">
-              
-              {/* العمود الأول: الشعار ونبذة مختصرة */}
-              <div className="space-y-6 lg:col-span-1">
+                            <div className="space-y-6 lg:col-span-1">
                 <Link href="/" className="flex items-center gap-3 group">
-                  <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-[#00a2ff]/40 shadow-[0_0_15px_rgba(0,162,255,0.3)] group-hover:scale-105 transition-transform">
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
                     <Image 
                       src="/logo.webp" 
                       alt="Travel Friend Logo" 
@@ -32,81 +28,73 @@ export default function Footer() {
                       className="object-contain"
                     />
                   </div>
-                  <span className="text-2xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-200 to-[#00a2ff]">
+                  <span className="text-2xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
                     Travel Friend
                   </span>
                 </Link>
 
-                <p className="text-slate-300 text-sm font-light leading-relaxed">
+                <p className="text-slate-600 text-sm font-light leading-relaxed">
                   Your ultimate partner for unforgettable journeys, customized itineraries, and VIP travel experiences across Egypt.
                 </p>
-
-                {/* شارة التوهج اللبني */}
-                <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-[#00a2ff]/10 border border-[#00a2ff]/30 text-sky-300 text-xs font-semibold">
+                <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
                   <span className="w-2 h-2 rounded-full bg-[#00a2ff] animate-ping" />
                   24/7 Travel Concierge
                 </div>
               </div>
-
-              {/* العمود الثاني: روابط التصفح المطلوبة */}
               <div className="space-y-4">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-[#00a2ff]">
+                <h4 className="text-sm font-bold uppercase tracking-widest text-blue-600">
                   Quick Links
                 </h4>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/about-us" className="text-slate-300 hover:text-sky-300 text-sm font-medium transition-colors flex items-center gap-2">
-                      <span className="text-[#00a2ff]">›</span> About Us
+                    <Link href="/about-us" className="text-slate-600 hover:text-blue-600 text-sm font-medium transition-colors flex items-center gap-2">
+                      <span className="text-blue-600">›</span> About Us
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact-us" className="text-slate-300 hover:text-sky-300 text-sm font-medium transition-colors flex items-center gap-2">
-                      <span className="text-[#00a2ff]">›</span> Contact Us
+                    <Link href="/contact-us" className="text-slate-600 hover:text-blue-600 text-sm font-medium transition-colors flex items-center gap-2">
+                      <span className="text-blue-600">›</span> Contact Us
                     </Link>
                   </li>
                   <li>
-                    <Link href="/privacy-policy" className="text-slate-300 hover:text-sky-300 text-sm font-medium transition-colors flex items-center gap-2">
-                      <span className="text-[#00a2ff]">›</span> Privacy Policy
+                    <Link href="/privacy-policy" className="text-slate-600 hover:text-blue-600 text-sm font-medium transition-colors flex items-center gap-2">
+                      <span className="text-blue-600">›</span> Privacy Policy
                     </Link>
                   </li>
                 </ul>
               </div>
-
-              {/* العمود الثالث: معلومات التواصل (الهاتف والبريد) */}
               <div className="space-y-4">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-[#00a2ff]">
+                <h4 className="text-sm font-bold uppercase tracking-widest text-blue-600">
                   Direct Contact
                 </h4>
                 <div className="space-y-3 text-sm">
-                  <a href={`tel:${whatsappNumber}`} className="flex items-center gap-3 text-slate-300 hover:text-sky-300 transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-[#00a2ff]/15 border border-[#00a2ff]/30 flex items-center justify-center text-sky-400 shrink-0">
+                  <a href={`tel:${whatsappNumber}`} className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 shrink-0 shadow-sm">
                       📞
                     </div>
                     <span>{whatsappNumber}</span>
                   </a>
 
-                  <a href={`mailto:${emailAddress}`} className="flex items-center gap-3 text-slate-300 hover:text-sky-300 transition-colors break-all">
-                    <div className="w-8 h-8 rounded-lg bg-[#00a2ff]/15 border border-[#00a2ff]/30 flex items-center justify-center text-sky-400 shrink-0">
+                  <a href={`mailto:${emailAddress}`} className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors break-all">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 shrink-0 shadow-sm">
                       ✉️
                     </div>
                     <span className="text-xs sm:text-sm">{emailAddress}</span>
                   </a>
                 </div>
               </div>
-
-              {/* العمود الرابع: زر الواتساب السريع المتوهج */}
               <div className="space-y-4">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-[#00a2ff]">
+                <h4 className="text-sm font-bold uppercase tracking-widest text-blue-600">
                   Instant Chat
                 </h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Have questions or ready to book? Chat with our travel specialists instantly on WhatsApp.
                 </p>
                 <Link
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#00a2ff] to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-[0_0_25px_rgba(0,162,255,0.4)] hover:shadow-[0_0_35px_rgba(0,162,255,0.7)] transition-all duration-300 text-sm"
+                  className="w-full inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#00a2ff] to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-[0_0_20px_rgba(0,162,255,0.3)] transition-all duration-300 text-sm"
                 >
                   <span>Chat on WhatsApp</span>
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -119,13 +107,11 @@ export default function Footer() {
 
           </div>
         </div>
-
-        {/* الروابط السفلية فقط بدون أي حقوق نشر */}
-        <div className="flex justify-end pt-6 border-t border-blue-950/50 text-xs text-slate-300">
+        <div className="flex justify-end pt-6 border-t border-slate-200 text-xs text-slate-600">
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-sky-300 transition-colors">Privacy Policy</Link>
-            <Link href="/contact-us" className="hover:text-sky-300 transition-colors">Contact Us</Link>
-            <Link href="/about-us" className="hover:text-sky-300 transition-colors">About Us</Link>
+            <Link href="/privacy-policy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
+            <Link href="/contact-us" className="hover:text-blue-600 transition-colors">Contact Us</Link>
+            <Link href="/about-us" className="hover:text-blue-600 transition-colors">About Us</Link>
           </div>
         </div>
 

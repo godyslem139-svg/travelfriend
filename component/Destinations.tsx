@@ -45,32 +45,29 @@ export default function Destinations() {
   ];
 
   return (
-    <section className="relative py-24 bg-slate-950 text-white overflow-hidden" id="destinations">
-      {/* إضاءة خلفية باللون اللبني المستوحى من اللوجو */}
+    <section className="relative py-24 bg-white text-slate-900 overflow-hidden" id="destinations">
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#00a2ff]/10 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* رأس السكشن */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-block py-1.5 px-4 rounded-full bg-[#00a2ff]/15 border border-[#00a2ff]/40 text-sky-300 text-sm font-semibold tracking-wide backdrop-blur-md shadow-[0_0_20px_rgba(0,162,255,0.25)]">
+          <span className="inline-block py-1.5 px-4 rounded-full bg-[#00a2ff]/10 border border-[#00a2ff]/30 text-blue-600 text-sm font-semibold tracking-wide backdrop-blur-md shadow-[0_0_20px_rgba(0,162,255,0.15)]">
             Top Destinations
           </span>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
             Explore Egypt’s Most{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-[#00a2ff] to-blue-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
               Iconic Regions
             </span>
           </h2>
 
-          <p className="text-slate-300 text-lg font-light">
+          <p className="text-slate-600 text-lg font-light">
             From ancient pharaonic wonders to crystal-clear coastal escapes, choose your next adventure with Travel Friend.
           </p>
         </div>
 
-        {/* شبكة كروت المناطق (2x2 على الشاشات الكبيرة لإبراز فخامة الصور) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {destinations.map((dest, index) => {
             const customMessage = encodeURIComponent(
@@ -83,33 +80,26 @@ export default function Destinations() {
                 key={index}
                 className="relative group rounded-3xl p-[1px] transition-all duration-500 hover:-translate-y-2"
               >
-                {/* طبقة التوهج اللبني الخارجية (Glow Layer) */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00a2ff] via-sky-400 to-blue-600 rounded-3xl blur-md opacity-30 group-hover:opacity-85 group-hover:blur-lg transition duration-500" />
-
-                {/* حاوية الكارت */}
-                <div className="relative h-full bg-[#071326]/95 backdrop-blur-xl rounded-3xl overflow-hidden border border-[#00a2ff]/30 group-hover:border-[#00a2ff]/80 shadow-[0_0_25px_rgba(0,162,255,0.15)] group-hover:shadow-[0_0_45px_rgba(0,162,255,0.4)] transition-all duration-500 flex flex-col">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00a2ff] via-sky-400 to-blue-600 rounded-3xl blur-md opacity-25 group-hover:opacity-75 transition duration-500" />
+                <div className="relative h-full bg-white backdrop-blur-xl rounded-3xl overflow-hidden border border-slate-200 group-hover:border-[#00a2ff]/60 shadow-xl transition-all duration-500 flex flex-col">
                   
-                  {/* قسم الصورة العلوية */}
-                  <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-900">
+                  <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-100">
                     <Image
                       src={dest.image}
                       alt={`${dest.name} Tours - Travel Friend`}
                       fill
                       className="object-cover transform group-hover:scale-110 transition duration-700"
                     />
-                    {/* تدرج لوني فوق الصورة لدمجها مع جسم الكارت */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
-                    {/* بادج المدة أعلى الصورة */}
                     <div className="absolute top-4 left-4">
-                      <span className="inline-flex items-center gap-1.5 py-1.5 px-3.5 rounded-full bg-slate-950/75 border border-[#00a2ff]/40 text-sky-300 text-xs font-semibold backdrop-blur-md">
+                      <span className="inline-flex items-center gap-1.5 py-1.5 px-3.5 rounded-full bg-white/90 border border-slate-200 text-blue-700 text-xs font-semibold backdrop-blur-md shadow-sm">
                         ✈️ {dest.duration}
                       </span>
                     </div>
 
-                    {/* اسم المنطقة فوق الجزء السفلي من الصورة */}
                     <div className="absolute bottom-4 left-6 right-6">
-                      <p className="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-1">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-sky-300 mb-1">
                         {dest.tagline}
                       </p>
                       <h3 className="text-3xl font-extrabold text-white tracking-tight">
@@ -118,33 +108,29 @@ export default function Destinations() {
                     </div>
                   </div>
 
-                  {/* تفاصيل الكارت السفلية */}
-                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
+                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6 bg-white">
                     <div className="space-y-5">
-                      <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed">
+                      <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed">
                         {dest.description}
                       </p>
 
-                      {/* أبرز الأنشطة داخل المنطقة */}
                       <div className="flex flex-wrap gap-2">
                         {dest.highlights.map((item, idx) => (
                           <span
                             key={idx}
-                            className="text-xs font-medium py-1.5 px-3 rounded-xl bg-blue-950/60 text-blue-200 border border-blue-800/60"
+                            className="text-xs font-medium py-1.5 px-3 rounded-xl bg-blue-50 text-blue-700 border border-blue-100"
                           >
                             ✓ {item}
                           </span>
                         ))}
                       </div>
                     </div>
-
-                    {/* زر الحجز والاستفسار المخصص لكل منطقة */}
-                    <div className="pt-4 border-t border-blue-900/50 flex items-center justify-between gap-4">
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
                       <Link
                         href={whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#00a2ff] to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-[0_0_20px_rgba(0,162,255,0.3)] hover:shadow-[0_0_30px_rgba(0,162,255,0.6)] transition-all duration-300"
+                        className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#00a2ff] to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-[0_0_20px_rgba(0,162,255,0.25)] transition-all duration-300"
                       >
                         <span>Book {dest.name} Trip via WhatsApp</span>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

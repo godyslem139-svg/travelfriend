@@ -50,31 +50,28 @@ export default function Services() {
   ];
 
   return (
-    <section className="relative py-24 bg-slate-950 text-white overflow-hidden" id="services">
-      {/* إضاءة خلفية باللون اللبني المستوحى من اللوجو */}
+    <section className="relative py-24 bg-white text-slate-900 overflow-hidden" id="services">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00a2ff]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* رأس السكشن */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-block py-1.5 px-4 rounded-full bg-[#00a2ff]/15 border border-[#00a2ff]/40 text-sky-300 text-sm font-semibold tracking-wide backdrop-blur-md shadow-[0_0_20px_rgba(0,162,255,0.25)]">
+          <span className="inline-block py-1.5 px-4 rounded-full bg-[#00a2ff]/10 border border-[#00a2ff]/30 text-blue-600 text-sm font-semibold tracking-wide backdrop-blur-md shadow-[0_0_20px_rgba(0,162,255,0.15)]">
             Our Services
           </span>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
             Comprehensive Travel Solutions{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-[#00a2ff] to-blue-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
               Crafted For You
             </span>
           </h2>
 
-          <p className="text-slate-300 text-lg font-light">
+          <p className="text-slate-600 text-lg font-light">
             Discover the full range of premium travel services designed to elevate your journey from start to finish.
           </p>
         </div>
 
-        {/* شبكة الكروت (6 كروت متناسقة مع التوهج اللبني) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const customMessage = encodeURIComponent(
@@ -87,39 +84,34 @@ export default function Services() {
                 key={index}
                 className="relative group rounded-3xl p-[1px] transition-all duration-500 hover:-translate-y-2"
               >
-                {/* طبقة التوهج اللبني الخارجية */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00a2ff] via-sky-400 to-blue-600 rounded-3xl blur-md opacity-30 group-hover:opacity-85 group-hover:blur-lg transition duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00a2ff] via-sky-400 to-blue-600 rounded-3xl blur-md opacity-25 group-hover:opacity-75 transition duration-500" />
 
-                {/* محتوى الكارت */}
-                <div className="relative h-full bg-[#071326]/95 backdrop-blur-xl rounded-3xl p-8 border border-[#00a2ff]/30 group-hover:border-[#00a2ff]/80 shadow-[0_0_25px_rgba(0,162,255,0.15)] group-hover:shadow-[0_0_45px_rgba(0,162,255,0.4)] transition-all duration-500 flex flex-col justify-between">
+                <div className="relative h-full bg-white backdrop-blur-xl rounded-3xl p-8 border border-slate-200 group-hover:border-[#00a2ff]/60 shadow-xl transition-all duration-500 flex flex-col justify-between">
                   
                   <div>
-                    {/* رأس الكارت (الأيقونة والبادج) */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-[#00a2ff]/15 border border-[#00a2ff]/40 flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(0,162,255,0.3)] group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-2xl shadow-sm group-hover:scale-110 transition-transform duration-300">
                         {service.icon}
                       </div>
-                      <span className="text-xs font-semibold uppercase tracking-wider py-1 px-3 rounded-full bg-sky-500/10 text-sky-300 border border-sky-400/25">
+                      <span className="text-xs font-semibold uppercase tracking-wider py-1 px-3 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
                         {service.badge}
                       </span>
                     </div>
 
-                    {/* العنوان والوصف */}
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sky-300 transition-colors">
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-slate-300 text-sm leading-relaxed font-light">
+                    <p className="text-slate-600 text-sm leading-relaxed font-light">
                       {service.description}
                     </p>
                   </div>
 
-                  {/* زر الاستفسار السريع عبر الواتساب */}
-                  <div className="mt-8 pt-4 border-t border-blue-900/40">
+                  <div className="mt-8 pt-4 border-t border-slate-100">
                     <Link
                       href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 font-semibold text-sm transition-colors"
+                      className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors"
                     >
                       <span>Inquire via WhatsApp</span>
                       <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

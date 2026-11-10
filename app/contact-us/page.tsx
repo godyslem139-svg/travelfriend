@@ -30,10 +30,7 @@ export default function ContactUsPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white pt-20 selection:bg-sky-500 selection:text-slate-950">
-      
-      {/* =====================================================================
-          1. HERO HEADER
-      ===================================================================== */}
+
       <section className="relative overflow-hidden border-b border-blue-900/40 bg-gradient-to-b from-[#0a192f] via-slate-950 to-slate-950 py-20 lg:py-24">
         {/* إضاءة خلفية متوهجة */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#00a2ff]/15 rounded-full blur-[140px] pointer-events-none" />
@@ -55,10 +52,6 @@ export default function ContactUsPage() {
           </p>
         </div>
       </section>
-
-      {/* =====================================================================
-          2. CONTACT CARDS & FORM SECTION
-      ===================================================================== */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
@@ -78,7 +71,6 @@ export default function ContactUsPage() {
 
             <div className="space-y-4 pt-4">
               
-              {/* WhatsApp Card */}
               <div className="relative group rounded-2xl p-[1px] transition-all">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#25D366] to-[#00a2ff] rounded-2xl blur-md opacity-25 group-hover:opacity-70 transition duration-500" />
                 <div className="relative bg-[#071326] backdrop-blur-xl rounded-2xl p-6 border border-blue-900/50 flex items-center gap-5">
@@ -94,7 +86,6 @@ export default function ContactUsPage() {
                 </div>
               </div>
 
-              {/* Phone Call Card */}
               <div className="relative group rounded-2xl p-[1px] transition-all">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00a2ff] to-blue-600 rounded-2xl blur-md opacity-25 group-hover:opacity-70 transition duration-500" />
                 <div className="relative bg-[#071326] backdrop-blur-xl rounded-2xl p-6 border border-blue-900/50 flex items-center gap-5">
@@ -110,7 +101,6 @@ export default function ContactUsPage() {
                 </div>
               </div>
 
-              {/* Email Card */}
               <div className="relative group rounded-2xl p-[1px] transition-all">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00a2ff] to-blue-600 rounded-2xl blur-md opacity-25 group-hover:opacity-70 transition duration-500" />
                 <div className="relative bg-[#071326] backdrop-blur-xl rounded-2xl p-6 border border-blue-900/50 flex items-center gap-5">
@@ -128,7 +118,6 @@ export default function ContactUsPage() {
 
             </div>
 
-            {/* Quick WhatsApp Button */}
             <div className="pt-4">
               <Link
                 href={whatsappUrl}
@@ -142,7 +131,6 @@ export default function ContactUsPage() {
 
           </div>
 
-          {/* Right Column: Interactive Inquiry Form */}
           <div className="lg:col-span-7 relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#00a2ff] via-sky-400 to-blue-600 rounded-3xl blur-md opacity-30" />
             
